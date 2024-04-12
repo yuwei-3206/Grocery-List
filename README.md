@@ -9,11 +9,11 @@ This Grocery List Application is designed to simplify the process of managing gr
 
 # Features and Functionality
 - Add grocery items: Users can easily add new items to their grocery list by entering the item name and quantity, ensuring all necessary items are accounted for.
-- Edit grocery items: The application allows users to edit existing items on their grocery list, enabling them to make adjustments or corrections as needed.
+- Edit grocery items: Users can edit existing items on their grocery list, enabling them to make adjustments or corrections as needed.
 - Remove Items: With just a tap, users can remove unwanted items from their grocery list, keeping it up-to-date and organized.
 - Quantity Selection: Users have the flexibility to specify the quantity of each item, ensuring accurate shopping and inventory management.
 - Checkbox Selection: Each item in the grocery list is accompanied by a checkbox, allowing users to mark items as completed or purchased.
-- Error Handling: The application includes error handling mechanisms to alert users of any invalid inputs or duplicate entries, ensuring data integrity and accuracy.
+- Error Handling: Includes error handling to alert users of any invalid inputs or duplicate entries, ensuring data integrity and accuracy.
 - Dynamic Updates: Changes made to the grocery list, such as adding, editing, or removing items, are reflected in real-time, providing users with immediate feedback and updates.
 
 # Potential Updates
