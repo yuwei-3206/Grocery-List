@@ -24,5 +24,10 @@ This Grocery List Application is designed to simplify the process of managing gr
 - Enhanced User Interface: Continuously refining and improving the user interface to enhance usability, accessibility, and overall user experience.
 
 
-# A0
+# A1
 ![1712765673287](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/37bcd29e-c9ab-43cd-8308-9171f1f5c5b4)
+# A2
+![1712862510904](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/db9a7a93-8b51-402c-a414-a918a771194a)
+![1712961301037](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/fec62bf2-6940-470e-9f88-f4b9c08b0aae)
+![1712961446392](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/a5109137-87f1-44e6-8863-1ada9756f1d9)
+
