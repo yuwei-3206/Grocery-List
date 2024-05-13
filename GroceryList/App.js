@@ -1,25 +1,54 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
-import EnterNamePage from './EnterNamePage';
-import GroceryListPage from './GroceryListPage';
+import { BottomNavigation } from 'react-native-paper';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import RecipesPage from './components/RecipesPage';
+import GroceryListPage from './components/GroceryListPage';
+import ProfilePage from './components/ProfilePage'
+import EnterNamePage from './components/EnterNamePage';
+import { loadProfile } from './components/utils';
 
 const App = () => {
   const [name, setName] = useState('');
-  const [showGroceryList, setShowGroceryList] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   const handleSubmitName = (name) => {
-    setName(name);
-    setShowGroceryList(true);
+    if (name.trim() === ''|| !/^[a-zA-Z\s]*$/.test(name)) {
+      // Check if the name is empty or contains only whitespace
+      alert('Please enter a valid name.');
+      return;
+    }
+    const cleanedName = name.replace(/\s+/g, '');
+    setName(cleanedName);
+    setShowProfile(true);
   };
 
+  const [index, setIndex] = useState(2);
+  const [routes] = useState([
+    { key: 'recipes', title: 'Recipes', focusedIcon: 'book' },
+    { key: 'groceryList', title: 'Grocery List', focusedIcon: 'cart' },
+    { key: 'profile', title: 'Profile', focusedIcon: 'account' },
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    recipes: RecipesPage,
+    groceryList: GroceryListPage,
+    profile: () => <ProfilePage name={name} setShowProfile={setShowProfile} />,
+  });
+
   return (
-    <View style={{ flex: 1 }}>
-      {!showGroceryList ? (
-        <EnterNamePage onSubmitName={handleSubmitName} />
-      ) : (
-        <GroceryListPage name={name} />
-      )}
-    </View>
+    <>
+      <SafeAreaProvider>
+        {showProfile ? (
+          <BottomNavigation
+            navigationState={{ index, routes }}
+            onIndexChange={setIndex}
+            renderScene={renderScene}
+          />
+        ) : (
+          <EnterNamePage onSubmitName={handleSubmitName} loadProfile={loadProfile} />
+        )}
+      </SafeAreaProvider>
+    </>
   );
 };
 

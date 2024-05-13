@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList, StyleSheet } from 'react-native';
+import {Button, Text, TextInput } from 'react-native-paper'; 
 import Checkbox from 'expo-checkbox';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const GroceryListPage = ({ name }) => {
   const [createInputText, setCreateInputText] = useState('');
@@ -10,6 +12,28 @@ const GroceryListPage = ({ name }) => {
   const [groceryList, setGroceryList] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [editIndex, setEditIndex] = useState(null);
+
+  useEffect(() => {
+    const loadGroceryList = async () => {
+      try {
+        const localList = await AsyncStorage.getItem(`${name}_grocery_list`);
+        if (localList !== null) {
+          setGroceryList(JSON.parse(localList));
+        }
+      } catch (error) {
+        console.error('Error loading grocery list:', error);
+      }
+    };
+    loadGroceryList();
+  }, [name]);
+
+  const saveGroceryList = async (list) => {
+    try {
+      await AsyncStorage.setItem(`${name}_grocery_list`, JSON.stringify(list));
+    } catch (error) {
+      console.error('Error saving grocery list:', error);
+    }
+  };
 
   const handleIncreaseCreateQuantity = () => {
     setCreateSelectedQuantity(createSelectedQuantity + 1);
@@ -39,16 +63,20 @@ const GroceryListPage = ({ name }) => {
         setErrorMessage('The item is in the list already!');
       return;
     }
-    setGroceryList([...groceryList, { item: createInputText, quantity: createSelectedQuantity }]);
+    const updatedList = [...groceryList, { item: createInputText, quantity: createSelectedQuantity }];
+    setGroceryList(updatedList);
     setCreateInputText('');
     setCreateSelectedQuantity(1);
     setErrorMessage('');
+    saveGroceryList(updatedList);
   };
+
 
   const handleRemoveItem = (index) => {
     const updatedList = [...groceryList];
     updatedList.splice(index, 1);
     setGroceryList(updatedList);
+    saveGroceryList(updatedList);
   };
 
   const handleEditItem = (index) => {
@@ -72,6 +100,7 @@ const GroceryListPage = ({ name }) => {
     setGroceryList(updatedList);
     setEditIndex(null);
     setErrorMessage('');
+    saveGroceryList(updatedList);
   };
 
   const handleToggleCheck = (index) => {
@@ -82,7 +111,6 @@ const GroceryListPage = ({ name }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hello, {name}</Text>
       <Text style={styles.title}>Create grocery</Text>
       <View style={styles.createGroceryContainer}>
         <TextInput
@@ -95,15 +123,12 @@ const GroceryListPage = ({ name }) => {
           }}
         />
         <View style={styles.rowCenter}>
-          <Button title="-" onPress={handleDecreaseCreateQuantity} />
-          <Text style={{ marginHorizontal: 10 }}>{createSelectedQuantity}</Text>
-          <Button title="+" onPress={handleIncreaseCreateQuantity} />
+          <Button icon="minus" style={styles.btn} onPress={handleDecreaseCreateQuantity} />
+          <Text style={{ marginHorizontal: 1 }}>{createSelectedQuantity}</Text>
+          <Button icon="plus" style={styles.btn} onPress={handleIncreaseCreateQuantity} />
+          <Button mode="contained" style={{ borderRadius: 10 }} onPress={handleAddItem}>Add</Button>
         </View>
-        <Button
-          title="Add"
-          onPress={handleAddItem}
-          style={styles.btn}
-        />
+        
       </View>
       {errorMessage !== '' && <Text style={styles.errorMessage}>{errorMessage}</Text>}
       <Text style={styles.title}>My Grocery List</Text>
@@ -121,18 +146,18 @@ const GroceryListPage = ({ name }) => {
                   value={editInputText}
                   onChangeText={(text) => setEditInputText(text)}
                 />
-                <Button title="-" onPress={handleDecreaseEditQuantity} />
+                <Button icon="minus" onPress={handleDecreaseEditQuantity} />
                 <Text style={{ marginHorizontal: 10 }}>{editSelectedQuantity}</Text>
-                <Button title="+" onPress={handleIncreaseEditQuantity} />
-                <Button title="Save" onPress={() => handleSaveItem(index)} style={styles.btn}/>
-                <Button title="Cancel" onPress={() => setEditIndex(null)} style={styles.btn}/>
+                <Button icon="plus" onPress={handleIncreaseEditQuantity} />
+                <Button onPress={() => handleSaveItem(index)} style={styles.btn}>Save</Button>
+                <Button title="close-circle" onPress={() => setEditIndex(null)} style={styles.btn}/>
               </View>
             ) : (
               <>
                 <Text style={{ flex: 1 }}>{item.item}</Text>
-                <Text style={{ marginRight: 20 }}>Qty: {item.quantity}</Text>
-                <Button title="Edit" onPress={() => handleEditItem(index)} style={styles.btn}/>
-                <Button title="Remove" onPress={() => handleRemoveItem(index)} style={styles.btn}/>
+                <Text style={{ marginRight: 10 }}>Qty: {item.quantity}</Text>
+                <Button icon="pencil" onPress={() => handleEditItem(index)} style={styles.btn}/>
+                <Button icon="delete" onPress={() => handleRemoveItem(index)} style={styles.btn}/>
               </>
             )}
           </View>
@@ -159,15 +184,18 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     borderWidth: 1,
-    borderColor: 'gray',
-    marginRight: 10,
-    padding: 10
+    borderColor: 'gray'
   },
   btn: {
+    display: 'flex',
+    alignitems: 'center',
+    justifycontent: 'center',
+
   },
   rowCenter: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent:'center'
   },
   errorMessage: {
     color: 'red',
