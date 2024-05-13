@@ -30,4 +30,8 @@ This Grocery List Application is designed to simplify the process of managing gr
 ![1712862510904](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/db9a7a93-8b51-402c-a414-a918a771194a)
 ![1712961301037](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/fec62bf2-6940-470e-9f88-f4b9c08b0aae)
 ![1712961446392](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/a5109137-87f1-44e6-8863-1ada9756f1d9)
+# A3
+![1715635717445](https://github.com/yuwei-3206/Grocery-List/assets/122844465/7dd5ef14-2a92-4a44-ac8f-85bdf7c6feda)
+![1715635831153](https://github.com/yuwei-3206/Grocery-List/assets/122844465/71b17e4f-1295-430b-982f-e36c05664b71)
+![1715635909899](https://github.com/yuwei-3206/Grocery-List/assets/122844465/5cd67691-d254-4813-82cc-06e1b04296ec)
 
