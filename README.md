@@ -1,6 +1,9 @@
-Author: Yu-Wei Wu Updated on: April 12, 2024
+Author: Yu-Wei Wu Updated on: May 15, 2024
 # Grocery List App
 This Grocery List Application is designed to simplify the process of managing grocery lists.
+
+# Target Audience
+Includes busy individuals and families who are looking for a convenient way to plan and organize their grocery shopping. Whether you're a parent managing a household or a student balancing school and life, this app is designed to simplify your grocery list management process.
 
 # Technologies Used
 - React Native: The core framework powering our application, providing a robust foundation for building cross-platform mobile applications.
@@ -15,6 +18,8 @@ This Grocery List Application is designed to simplify the process of managing gr
 - Checkbox Selection: Each item in the grocery list is accompanied by a checkbox, allowing users to mark items as completed or purchased.
 - Error Handling: Includes error handling to alert users of any invalid inputs or duplicate entries, ensuring data integrity and accuracy.
 - Dynamic Updates: Changes made to the grocery list, such as adding, editing, or removing items, are reflected in real-time, providing users with immediate feedback and updates.
+- Recipe Screen: Users are presented with a variety of recipes to explore. If a user finds a recipe they like, they can simply click on it to access a larger picture and read a description. This helps them get a better idea of the recipe before deciding if they want to save it.
+- Profile Screen: Save data to local storage, ensuring that user information persists even after signing out, providing continuity and convenience.
 
 # Potential Updates
 - User Authentication: Implementing user authentication functionality to allow users to create accounts, personalize their grocery lists, and access them across multiple devices.
@@ -22,10 +27,9 @@ This Grocery List Application is designed to simplify the process of managing gr
 - Advanced Sorting and Filtering: Enhancing the sorting and filtering capabilities of the application to enable users to organize their grocery lists based on categories, priorities, or custom criteria.
 - Shared Grocery Lists: Allow users to share their grocery lists with others, facilitating collaboration and coordination, particularly useful for households or groups managing shopping responsibilities together.
 - Enhanced User Interface: Continuously refining and improving the user interface to enhance usability, accessibility, and overall user experience.
+- Saved Recipes Screen: An extra screen where users can easily access all of their saved recipes.
+- Save Button for Recipes: Adding a save button for recipes. This would allow users to quickly save recipes they're interested in directly from the recipe details screen, making it more convenient to build their collection of favorite recipes.
 
-
-# A1
-![1712765673287](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/37bcd29e-c9ab-43cd-8308-9171f1f5c5b4)
 # A2
 ![1712862510904](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/db9a7a93-8b51-402c-a414-a918a771194a)
 ![1712961301037](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/fec62bf2-6940-470e-9f88-f4b9c08b0aae)
