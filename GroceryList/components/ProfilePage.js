@@ -44,6 +44,10 @@ const ProfilePage = ({ name, setShowProfile }) => {
   };
 
   const handleSaveProfile = () => {
+    if (profile.name.trim() === '' || !/^[a-zA-Z\s]*$/.test(profile.name)) {
+      alert('Please enter a valid name.');
+      return;
+    }
     setIsEditing(false);
     setProfile({ ...profile, gender: selectedGender });
     saveProfile();

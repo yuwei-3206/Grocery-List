@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BottomNavigation } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RecipesPage from './components/RecipesPage';
-import GroceryListPage from './components/GroceryListPage';
+import GroceryListPage from './components/GroceryList/GroceryListPage';
 import ProfilePage from './components/ProfilePage'
 import EnterNamePage from './components/EnterNamePage';
 import { loadProfile } from './components/utils';
