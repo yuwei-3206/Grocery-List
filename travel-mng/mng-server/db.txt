@@ -1,0 +1,13 @@
+MongoDB:
+
+Hostname: tux-mongo.cci.drexel.edu
+
+Username: yw829
+
+Password: Ieheesah6aF
+
+Authentication database: yw829_INFO670_202335
+
+Example login command: mongosh --username yw829 --password --authenticationDatabase yw829_INFO670_202335 "mongodb://tux-mongo.cci.drexel.edu:27017"
+
+Link: http://node.cci.drexel.edu:<port num>/
