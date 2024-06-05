@@ -30,10 +30,6 @@ Includes busy individuals and families who are looking for a convenient way to p
 - Saved Recipes Screen: An extra screen where users can easily access all of their saved recipes.
 - Save Button for Recipes: Adding a save button for recipes. This would allow users to quickly save recipes they're interested in directly from the recipe details screen, making it more convenient to build their collection of favorite recipes.
 
-# A2
-![1712862510904](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/db9a7a93-8b51-402c-a414-a918a771194a)
-![1712961301037](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/fec62bf2-6940-470e-9f88-f4b9c08b0aae)
-![1712961446392](https://github.com/yuwei-3206/INFO-670-Assignment/assets/122844465/a5109137-87f1-44e6-8863-1ada9756f1d9)
 # A3
 ![1715635831153](https://github.com/yuwei-3206/Grocery-List/assets/122844465/71b17e4f-1295-430b-982f-e36c05664b71)
 ![1715635909899](https://github.com/yuwei-3206/Grocery-List/assets/122844465/5cd67691-d254-4813-82cc-06e1b04296ec)
